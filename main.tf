@@ -76,10 +76,12 @@ resource "aws_rds_cluster" "this" {
   storage_encrypted                   = var.storage_encrypted
   apply_immediately                   = var.apply_immediately
   db_cluster_parameter_group_name     = var.db_cluster_parameter_group_name
+  db_instance_parameter_group_name    = var.allow_major_version_upgrade ? var.db_cluster_parameter_group_name : null
   iam_database_authentication_enabled = var.iam_database_authentication_enabled
   backtrack_window                    = local.backtrack_window
   copy_tags_to_snapshot               = var.copy_tags_to_snapshot
   iam_roles                           = var.iam_roles
+  storage_type                        = var.storage_type
 
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
 

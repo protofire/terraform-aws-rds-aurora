@@ -442,3 +442,9 @@ variable "iam_role_max_session_duration" {
   type        = number
   default     = null
 }
+
+variable "storage_type" {
+  description = "Storage type of Aurora"
+  type        = string
+  default     = "standard"
+}
